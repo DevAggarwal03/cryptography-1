@@ -1,0 +1,20 @@
+{
+  "name": "crytography",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc -b && node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/node": "^24.3.0",
+    "cryptojs": "^2.5.3",
+    "typescript": "^5.9.2"
+  },
+  "devDependencies": {
+    "@types/cryptojs": "^3.1.33"
+  }
+}
