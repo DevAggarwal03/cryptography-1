@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.binary64strToHex = exports.binary64ArrStrToHex = exports.permutate = exports.arr64bitToBinStr = exports.make64BitArr = exports.toTxt = exports.hexTo64BitBinaryArray = exports.toBinary = void 0;
-const helperFunctions_1 = require("../SymmetricKey/dataEcryptionStandard/helperFunctions");
+exports.binary64strToHex = exports.binary64ArrStrToHex = exports.permutate = exports.bin64bitArrToBinStr = exports.binTo64BitBinArr = exports.binToTxt = exports.hexTo64BitBinArray = exports.toBinary = void 0;
+const helperFunctions_1 = require("../SymmetricKey/DES/helperFunctions");
 const toBinary = (plainTxt) => {
     const encoder = new TextEncoder();
     const bytes = encoder.encode(plainTxt);
@@ -10,7 +10,7 @@ const toBinary = (plainTxt) => {
     return Array.from(padded).map(b => b.toString(2).padStart(8, '0')).join("");
 };
 exports.toBinary = toBinary;
-const hexTo64BitBinaryArray = (hex) => {
+const hexTo64BitBinArray = (hex) => {
     // assume hex length multiple of 16 (8 bytes per block)
     const blocks = [];
     for (let i = 0; i < hex.length; i += 16) {
@@ -25,8 +25,8 @@ const hexTo64BitBinaryArray = (hex) => {
     }
     return blocks; // ["01010101 ...", ...]
 };
-exports.hexTo64BitBinaryArray = hexTo64BitBinaryArray;
-const toTxt = (binStr) => {
+exports.hexTo64BitBinArray = hexTo64BitBinArray;
+const binToTxt = (binStr) => {
     if (!binStr || binStr.trim() === "")
         return "";
     const binaryBytes = binStr.trim().split(/\s+/);
@@ -35,8 +35,8 @@ const toTxt = (binStr) => {
     const decoder = new TextDecoder('utf-8');
     return decoder.decode(unpadded);
 };
-exports.toTxt = toTxt;
-const make64BitArr = (binaryStr) => {
+exports.binToTxt = binToTxt;
+const binTo64BitBinArr = (binaryStr) => {
     if (binaryStr == "") {
         return [];
     }
@@ -55,8 +55,8 @@ const make64BitArr = (binaryStr) => {
     ;
     return arr;
 };
-exports.make64BitArr = make64BitArr;
-const arr64bitToBinStr = (binaryStrArr) => {
+exports.binTo64BitBinArr = binTo64BitBinArr;
+const bin64bitArrToBinStr = (binaryStrArr) => {
     let ans = [];
     for (let i = 0; i < binaryStrArr.length; i++) {
         for (let j = 0; j < 8; j++) {
@@ -66,7 +66,7 @@ const arr64bitToBinStr = (binaryStrArr) => {
     // xxxxxxxx xxxxxxxx ...
     return ans.join(" ");
 };
-exports.arr64bitToBinStr = arr64bitToBinStr;
+exports.bin64bitArrToBinStr = bin64bitArrToBinStr;
 const permutate = (str, permutationMatrx) => {
     let computedStr = "";
     try {
@@ -98,6 +98,9 @@ const binary64ArrStrToHex = (strArr) => {
 };
 exports.binary64ArrStrToHex = binary64ArrStrToHex;
 const binary64strToHex = (str) => {
+    if (str.length != 64) {
+        throw new Error(`string of length ${str.length} is not of correct length of 64`);
+    }
     let ans = "";
     for (let i = 0; i < 64; i += 4) {
         const tempStr = str.substring(i, i + 4);

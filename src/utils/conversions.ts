@@ -1,4 +1,4 @@
-import { padPKCS7, unpadPKCS7 } from "../SymmetricKey/dataEcryptionStandard/helperFunctions";
+import { padPKCS7, unpadPKCS7 } from "../SymmetricKey/DES/helperFunctions";
 
 export const toBinary = (plainTxt: string): string => {
     const encoder = new TextEncoder();

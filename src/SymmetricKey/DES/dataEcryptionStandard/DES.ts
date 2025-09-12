@@ -1,7 +1,7 @@
-import { sBoxesFn } from "./desSBoxes";
-import { toBinary, hexTo64BitBinArray, binToTxt, binTo64BitBinArr, permutate, binary64ArrStrToHex, bin64bitArrToBinStr } from "../../utils/conversions";
-import { leftShift, xorFn } from "../../utils/operations";
-import { expansionPBoxFnMatrix, finalPermutationMatrix, initialPermutationMatrix, keyCompressionPermutationMatrix, parityDropMatrix, straightPBoxEncFnMatrix } from "./matrix";
+import { sBoxesFn } from "../desSBoxes";
+import { toBinary, hexTo64BitBinArray, binToTxt, binTo64BitBinArr, permutate, binary64ArrStrToHex, bin64bitArrToBinStr } from "../../../utils/conversions";
+import { leftShift, xorFn } from "../../../utils/operations";
+import { expansionPBoxFnMatrix, finalPermutationMatrix, initialPermutationMatrix, keyCompressionPermutationMatrix, parityDropMatrix, straightPBoxEncFnMatrix } from "../matrix";
 
 // main des encryption function
 export const DESEncryption = (plainTxt: string, key: string): string => {

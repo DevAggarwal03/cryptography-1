@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DESDescryption = exports.DESEncryption = void 0;
-const desSBoxes_1 = require("./desSBoxes");
-const conversions_1 = require("../../utils/conversions");
-const operations_1 = require("../../utils/operations");
-const matrix_1 = require("./matrix");
+const desSBoxes_1 = require("../desSBoxes");
+const conversions_1 = require("../../../utils/conversions");
+const operations_1 = require("../../../utils/operations");
+const matrix_1 = require("../matrix");
 // main des encryption function
 const DESEncryption = (plainTxt, key) => {
     // xxxxxxxx xxxxxxxx ...
