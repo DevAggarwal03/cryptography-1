@@ -12,8 +12,8 @@ console.log("plain text: ", plainText)
 
 
 
-console.log("message: ", tempPara);
-const DDesCipher: string = DDESEncryption(tempPara, "SECRE1", "SECRE2");
-console.log("cipher hex: ", DDesCipher);
-const DDesPlainText: string = DDESDescryption(DDesCipher, "SECRE1", "SECRE2");
-console.log("plain text: ", DDesPlainText)
+// console.log("message: ", tempPara);
+// const DDesCipher: string = DDESEncryption(tempPara, "SECRE1", "SECRE2");
+// console.log("cipher hex: ", DDesCipher);
+// const DDesPlainText: string = DDESDescryption(DDesCipher, "SECRE1", "SECRE2");
+// console.log("plain text: ", DDesPlainText)
